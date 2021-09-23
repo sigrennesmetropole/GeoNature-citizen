@@ -18,55 +18,6 @@
     </section>
 </div>
 
-<div
-    *ngIf="stats && AppConfig.FRONTEND.DISPLAY_STATS"
-    class="row row-0 general-stat"
->
-    <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
-        <div class="panel panel-teal panel-widget border-right">
-            <div class="no-padding">
-                <em class="fa fa-xl fa-search color-primary"></em>
-                <div class="large">{{ stats.nb_obs }}</div>
-                <div class="text-muted" i18n="Observations@@observations">Observations</div>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
-        <div class="panel panel-blue panel-widget border-right">
-            <div class="no-padding">
-                <em class="fa fa-xl fa fa-leaf color-secondary"></em>
-                <div class="large">{{ stats.nb_espece }}</div>
-                <div class="text-muted" i18n="species@@species">Espèces</div>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
-        <div class="panel panel-orange panel-widget border-right">
-            <div class="no-padding">
-                <em class="fa fa-xl fa-users color-primary"></em>
-                <div class="large">{{ stats.nb_user }}</div>
-                <div class="text-muted" i18n="Observers@@observers">Observateurs</div>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
-        <div class="panel panel-red panel-widget">
-            <div class="no-padding">
-                <em class="fa fa-xl fa fas fa-share-alt color-secondary"></em>
-                <div class="large">{{ stats.nb_program }}</div>
-                <div
-                    class="text-muted"
-                    [innerHtml]="
-                        AppConfig.programs_label[localeId]
-                            ? AppConfig.programs_label[localeId]
-                            : 'Programmes'
-                    "
-                ></div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="row">
     <!-- LES PROGRAMMES -->
     <section id="programs">
@@ -81,9 +32,13 @@
                             [routerLink]="[
                                 '/programs',
                                 p.id_program,
-                                p.module.name
-                            ]"
-                        >
+                               'observations']"
+			>
+				<!--
+				// On supprime la variable que l'on remplace par la constante string qu'on met au dessus
+				// impossible de savoir pourquoi, mais depuis qq jours, il nous met undefined au lieu du nom du module ...
+				 p.module.name
+					-->
                             <div class="text-center">
                                 <div
                                     class="img-hover"
@@ -191,6 +146,58 @@
         </div>
     </section>
 </div>
+
+<div
+    *ngIf="stats && AppConfig.FRONTEND.DISPLAY_STATS"
+    class="row row-0 general-stat"
+>
+    <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+        <div class="panel panel-teal panel-widget border-right">
+            <div class="no-padding">
+                <em class="fa fa-xl fa-search color-primary"></em>
+                <div class="large">{{ stats.nb_obs }}</div>
+                <div class="text-muted" i18n="Observations@@observations">Observations</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+        <div class="panel panel-blue panel-widget border-right">
+            <div class="no-padding">
+                <em class="fa fa-xl fa fa-leaf color-secondary"></em>
+                <div class="large">{{ stats.nb_espece }}</div>
+                <div class="text-muted" i18n="species@@species">Espèces</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+        <div class="panel panel-orange panel-widget border-right">
+            <div class="no-padding">
+                 <em class="fa fa-xl fa-users color-primary"></em>
+				<!--<img src="assets/pointer-blue2.png" height="30px">-->
+                <div class="large">{{ stats.nb_user }}</div>
+                <div class="text-muted" i18n="Observers@@observers">Observateurs</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+        <div class="panel panel-red panel-widget">
+            <div class="no-padding">
+                <em class="fa fa-xl fa fas fa-share-alt color-secondary"></em>
+                <div class="large">{{ stats.nb_program }}</div>
+                <div
+                    class="text-muted"
+                    [innerHtml]="
+                        AppConfig.programs_label[localeId]
+                            ? AppConfig.programs_label[localeId]
+                            : 'Programmes'
+                    "
+                ></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div row>
     <app-home-custom></app-home-custom>
 </div>

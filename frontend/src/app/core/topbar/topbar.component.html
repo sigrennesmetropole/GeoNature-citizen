@@ -57,11 +57,7 @@
                             (click)="programs(); isCollapsed = true"
                             title="Les programmes"
                         >
-                            {{
-                                AppConfig.programs_label[localeId]
-                                    ? AppConfig.programs_label[localeId]
-                                    : 'Programmes'
-                            }}
+                            Programmes d'observation
                         </a>
                     </li>
                     <li *ngIf="canDisplayAbout">
@@ -74,6 +70,16 @@
                             title="A propos"
                             >A propos</a
                         >
+                    </li>
+					 <li>
+                        <a
+                            class="btn my-2 my-sm-0 rounded-0"
+                            href="https://abc-biodivrennes.fr/"
+							target="_blank"
+                            title="Accès à l'atlas"
+                        >
+                            L'atlas Biodiv'Rennes
+                        </a>
                     </li>
                     <li *ngIf="isAdmin">
                         <a
