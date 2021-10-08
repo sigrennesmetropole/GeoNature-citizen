@@ -11,6 +11,10 @@ from geoalchemy2.shape import from_shape, to_shape
 from geojson import Feature
 from shapely.geometry import asShape
 
+from gncitizen.utils.env import load_config
+
+config = load_config()
+
 """
     Liste des types de données sql qui
     nécessite une sérialisation particulière en
@@ -31,8 +35,8 @@ def create_schemas(db):
 
     :param db: db connection
     """
-    db.session.execute("CREATE SCHEMA IF NOT EXISTS gnc_core")
-    db.session.execute("CREATE SCHEMA IF NOT EXISTS gnc_obstax")
+    db.session.execute("CREATE SCHEMA IF NOT EXISTS %s" % config.get("CORE_SCHEMA_NAME", "gnc_core"))
+    db.session.execute("CREATE SCHEMA IF NOT EXISTS %s" % config.get("OBSTAX_SCHEMA_NAME", "gnc_obstax"))
     db.session.execute("CREATE SCHEMA IF NOT EXISTS ref_geo")
     db.session.commit()
 

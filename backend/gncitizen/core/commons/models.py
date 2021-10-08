@@ -9,8 +9,10 @@ from sqlalchemy.sql import expression
 from sqlalchemy.ext.declarative import declared_attr
 
 from gncitizen.core.taxonomy.models import BibListes
-from gncitizen.utils.env import db
+from gncitizen.utils.env import db, load_config
 from gncitizen.utils.sqlalchemy import serializable, geoserializable
+
+config = load_config()
 
 
 class TimestampMixinModel(object):
@@ -35,7 +37,7 @@ class ModulesModel(TimestampMixinModel, db.Model):
     """Table des modules de GeoNature-citizen"""
 
     __tablename__ = "t_modules"
-    __table_args__ = {"schema": "gnc_core"}
+    __table_args__ = {"schema": config.get("CORE_SCHEMA_NAME", "gnc_core")}
     id_module = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
     label = db.Column(db.String(50), nullable=False)
@@ -50,7 +52,7 @@ class ProgramsModel(TimestampMixinModel, db.Model):
     """Table des Programmes de GeoNature-citizen"""
 
     __tablename__ = "t_programs"
-    __table_args__ = {"schema": "gnc_core"}
+    __table_args__ = {"schema": config.get("CORE_SCHEMA_NAME", "gnc_core")}
     id_program = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(50), nullable=False)
     short_desc = db.Column(db.String(200), nullable=False)
@@ -86,6 +88,6 @@ class MediaModel(TimestampMixinModel, db.Model):
         """
 
     __tablename__ = "t_medias"
-    __table_args__ = {"schema": "gnc_core"}
+    __table_args__ = {"schema": config.get("CORE_SCHEMA_NAME", "gnc_core")}
     id_media = db.Column(db.Integer, primary_key=True)
     filename = db.Column(db.String(50), nullable=False)

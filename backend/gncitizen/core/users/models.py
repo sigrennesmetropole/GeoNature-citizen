@@ -8,13 +8,16 @@ from gncitizen.core.commons.models import (
     TimestampMixinModel,
 )
 from gncitizen.utils.sqlalchemy import serializable
+from gncitizen.utils.env import load_config
 from server import db
 from sqlalchemy.ext.declarative import declared_attr
 
 
+config = load_config()
+
 class RevokedTokenModel(db.Model):
     __tablename__ = "t_revoked_tokens"
-    __table_args__ = {"schema": "gnc_core"}
+    __table_args__ = {"schema": config.get("CORE_SCHEMA_NAME", "gnc_core")}
 
     id = db.Column(db.Integer, primary_key=True)
     jti = db.Column(db.String(120))
@@ -36,7 +39,7 @@ class UserModel(TimestampMixinModel, db.Model):
     """
 
     __tablename__ = "t_users"
-    __table_args__ = {"schema": "gnc_core"}
+    __table_args__ = {"schema": config.get("CORE_SCHEMA_NAME", "gnc_core")}
 
     id_user = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
@@ -117,7 +120,7 @@ class GroupsModel(db.Model):
     """Table des groupes d'utilisateurs"""
 
     __tablename__ = "bib_groups"
-    __table_args__ = {"schema": "gnc_core"}
+    __table_args__ = {"schema": config.get("CORE_SCHEMA_NAME", "gnc_core")}
     id_group = db.Column(db.Integer, primary_key=True)
     category = db.Column(db.String(150), nullable=True)
     group = db.Column(db.String(150), nullable=False)
@@ -128,7 +131,7 @@ class UserRightsModel(TimestampMixinModel, db.Model):
     """Table de gestion des droits des utilisateurs de GeoNature-citizen"""
 
     __tablename__ = "t_users_rights"
-    __table_args__ = {"schema": "gnc_core"}
+    __table_args__ = {"schema": config.get("CORE_SCHEMA_NAME", "gnc_core")}
     id_user_right = db.Column(db.Integer, primary_key=True)
     id_user = db.Column(db.Integer, db.ForeignKey(UserModel.id_user), nullable=False)
     id_module = db.Column(
@@ -148,7 +151,7 @@ class UserGroupsModel(TimestampMixinModel, db.Model):
     """Table de classement des utilisateurs dans des groupes"""
 
     __tablename__ = "cor_users_groups"
-    __table_args__ = {"schema": "gnc_core"}
+    __table_args__ = {"schema": config.get("CORE_SCHEMA_NAME", "gnc_core")}
     id_user_right = db.Column(db.Integer, primary_key=True)
     id_user = db.Column(db.Integer, db.ForeignKey(UserModel.id_user), nullable=False)
     id_group = db.Column(

@@ -13,7 +13,10 @@ from gncitizen.core.ref_geo.models import LAreas
 from gncitizen.core.taxonomy.models import Taxref
 from gncitizen.core.users.models import ObserverMixinModel
 from gncitizen.utils.sqlalchemy import serializable, geoserializable
+from gncitizen.utils.env import load_config
 from server import db
+
+config = load_config()
 
 
 @serializable
@@ -22,7 +25,7 @@ class ObservationModel(ObserverMixinModel, TimestampMixinModel, db.Model):
     """Table des observations"""
 
     __tablename__ = "t_obstax"
-    __table_args__ = {"schema": "gnc_obstax"}
+    __table_args__ = {"schema": config.get("OBSTAX_SCHEMA_NAME", "gnc_obstax")}
     id_observation = db.Column(db.Integer, primary_key=True, unique=True)
     uuid_sinp = db.Column(UUID(as_uuid=True), nullable=False, unique=True)
     id_program = db.Column(
@@ -41,7 +44,7 @@ class ObservationMediaModel(TimestampMixinModel, db.Model):
     """Table de correspondances des médias (photos) avec les observations"""
 
     __tablename__ = "cor_obstax_media"
-    __table_args__ = {"schema": "gnc_obstax"}
+    __table_args__ = {"schema": config.get("OBSTAX_SCHEMA_NAME", "gnc_obstax")}
     id_match = db.Column(db.Integer, primary_key=True, unique=True)
     id_data_source = db.Column(
         db.Integer,
