@@ -36,6 +36,7 @@ export class HomeComponent implements OnInit, AfterViewChecked {
   ngOnInit() {
     this.route.data.subscribe((data: { programs: Program[] }) => {
       this.programs = data.programs;
+	console.log(data.programs);
       this.observationsService.getStat().subscribe(
         (stats) => this.stats=stats
       )

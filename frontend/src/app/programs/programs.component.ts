@@ -32,6 +32,7 @@ export class ProgramsComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe((data: { programs: Program[] }) => {
+	console.log(data.programs);
       if (data.programs) {
         this.programs$.next(data.programs);
       } else {

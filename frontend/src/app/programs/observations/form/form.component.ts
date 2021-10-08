@@ -253,6 +253,7 @@ export class ObsFormComponent implements AfterViewInit {
   }
 
   intiForm() {
+    console.debug("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
     this.obsForm = this.formBuilder.group(
       {
         cd_nom: ["", Validators.required],
