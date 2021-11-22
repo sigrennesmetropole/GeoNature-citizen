@@ -28,7 +28,7 @@
   /* --list-toggler-width: 21px; */
   --list-obs-offset: calc(var(--router-outlet-offset) + 4em);
   /* --list-obs-offset: 170px; */
-  --router-outlet-margin-top: 6.625em;
+  --router-outlet-margin-top: 4.75em;
   /* --router-outlet-margin-top: 106px; */
   --router-outlet-offset: calc(var(--router-outlet-margin-top) + 0.5em);
   /* --router-outlet-offset: 113px; */
