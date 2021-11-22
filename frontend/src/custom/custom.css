@@ -110,6 +110,7 @@ div.btn-group a:first-child {
 
 .programs-custom > h3 {
   padding-top: 0.5em;
+  padding-left: 0.1em;
   color: #f0f4f0;
   font-family: 'IntroBoldAlt';
   font-size: 24px;
@@ -122,6 +123,7 @@ div.btn-group a:first-child {
 
 .general-stat > h3 {
   padding-top: 0.5em;
+  padding-left: 0.1em;
   color: #003333;
   font-family: 'IntroBoldAlt';
   font-size: 24px;
