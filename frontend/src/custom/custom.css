@@ -82,9 +82,13 @@
 
 }
 
-
 div.btn-group[_ngcontent-serverApp-c1] a[_ngcontent-serverApp-c1]:first-child {
     color: #f0f4f0;
+}
+
+ul.btn-group li a,
+div.btn-group a {
+  color: #f0f4f0 !important;
 }
 
 ul.btn-group li a.active {
