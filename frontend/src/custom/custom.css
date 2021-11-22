@@ -1,0 +1,130 @@
+/*************************************
+ *      Global css style overlay     *
+ * Uncomment and adapt or add styles *
+ *************************************/
+
+@font-face {
+  font-family: "IntroBold";
+  src: url("./fonts/Fontfabric-IntroBold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "IntroBoldAlt";
+  src: url("./fonts/Fontfabric-IntroBoldAlt.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "IntroBoldCaps";
+  src: url("./fonts/Fontfabric-IntroBoldCaps.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "IntroSemiBold";
+  src: url("./fonts/Fontfabric-IntroSemiBold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "IntroSemiBoldAlt";
+  src: url("./fonts/Fontfabric-IntroSemiBoldAlt.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "IntroSemiBoldCaps";
+  src: url("./fonts/Fontfabric-IntroSemiBoldCaps.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "IntroSemiBoldItalic";
+  src: url("./fonts/Fontfabric-IntroSemiBoldItalic.otf") format("opentype");
+}
+/* COLORS */
+
+:root {
+/*	
+    --default-font-color: #5d6970;
+    --primary: #003333;
+    --dark-primary: #0a998f;
+    --secondary: #60b15c;
+    --secondary-gradient: #57a154;
+    --ternary: #45765c;
+    --list-toggler-width: 21px;
+    --list-obs-offset: 170px;
+    --router-outlet-offset: 113px;
+    --modal-header-bg-moz: moz-linear-gradient(top, var(--secondary) 0%, var(--secondary) 50%, var(--secondary-gradient) 51%, var(--secondary-gradient) 100%);
+    --modal-header-bg-webkit: moz-linear-gradient(top, var(--secondary) 0%, var(--secondary) 50%, var(--secondary-gradient) 51%, var(--secondary-gradient) 100%);
+    --modal-header-bg-linear: linear-gradient(to bottom, var(--secondary) 0%, var(--secondary) 50%, var(--secondary-gradient) 51%, var(--secondary-gradient) 100%);
+    --main-color: #003333;
+*/
+    --default-font-color: #5d6970;
+        /* fond principal (dont header) */
+    --primary: #003333;
+    --dark-primary: #003333;
+    --secondary: #003333;
+    --secondary-gradient: #003333;
+    --ternary: #003333;
+    --list-toggler-width: 21px;
+    --list-obs-offset: 170px;
+    --router-outlet-offset: 113px;
+    --modal-header-bg-moz: moz-linear-gradient(top, var(--secondary) 0%, var(--secondary) 50%, var(--secondary-gradient) 51%, var(--secondary-gradient) 100%);
+    --modal-header-bg-webkit: moz-linear-gradient(top, var(--secondary) 0%, var(--secondary) 50%, var(--secondary-gradient) 51%, var(--secondary-gradient) 100%);
+    --modal-header-bg-linear: linear-gradient(to bottom, var(--secondary) 0%, var(--secondary) 50%, var(--secondary-gradient) 51%, var(--secondary-gradient) 100%);
+    --main-color: #003333;
+
+}
+
+.navbar[_ngcontent-serverApp-c1] {
+  background-color: #003333 !important;
+
+}
+
+#welcome {
+    font-family: IntroSemiBoldAlt;
+
+}
+
+
+div.btn-group[_ngcontent-serverApp-c1] a[_ngcontent-serverApp-c1]:first-child {
+    color: #f0f4f0;
+}
+
+ul.btn-group li a.active {
+    color: #f0f4f0 !important;
+}
+
+div.btn-group a:first-child {
+    color: #f0f4f0 !important;
+}
+
+#welcome > p {
+    font-family: 'IntroBoldAlt' !important;
+	padding-left: 1% !important;
+}
+#welcome > h1 {
+    font-family: 'IntroSemiBoldAlt' !important;
+padding-left: 1% !important;
+}
+
+.btn {
+font-family: 'IntroBoldAlt' !important;
+}
+
+body {
+ font-family: 'IntroSemiBold' !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'IntroSemiBold' !important;
+}
+
+#slider .carousel-text div {
+    max-height: 100% !important;
+}
+
+footer[_ngcontent-serverApp-c2]{
+  background: #003333;
+}
