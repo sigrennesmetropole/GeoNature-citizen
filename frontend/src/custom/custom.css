@@ -100,12 +100,15 @@ div.btn-group a:first-child {
 }
 
 #welcome > p {
-    font-family: 'IntroBoldAlt' !important;
+  font-family: 'IntroBoldAlt' !important;
 	padding-left: 1% !important;
+  font-size: 20px !important;
 }
 #welcome > h1 {
-    font-family: 'IntroSemiBoldAlt' !important;
-padding-left: 1% !important;
+  font-family: 'IntroSemiBoldAlt' !important;
+  padding-left: 1% !important;
+  font-size: 40px !important;
+  font-weight: bold !important;
 }
 
 .btn {
