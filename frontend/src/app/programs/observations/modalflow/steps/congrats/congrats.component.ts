@@ -30,7 +30,7 @@ export class CongratsComponent implements IFlowComponent {
     this.obs = this.data.obs.properties;
    this.timeout = setTimeout(() => {
       this.data.next(this.data);
-    }, 5000);
+    }, 10000);
   }
 
 
